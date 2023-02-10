@@ -28,7 +28,7 @@ body {
 
 
 .clipy{
-   -webkit-text-stroke: 0.3vw grey;
+   -webkit-text-stroke: 0.3vw white;
 }
 
 .clipy::before{
@@ -39,7 +39,7 @@ body {
    width:0%;
    height:100%;
    color:black;
-   -webkit-text-stroke: 0vw grey;
+   -webkit-text-stroke: 0vw white;
    border-right: 2px solid black;
    overflow:hidden;
    animation: animate 6s linear infinite;
