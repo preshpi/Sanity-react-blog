@@ -38,7 +38,7 @@ function Newsletter() {
   return (
     <div className="pt-10 text-center space-y-[10px]">
       <h3>Subscribe to my newsletter and get trending news about tech</h3>
-      <form ref={form} onSubmit={changeSubmit} className="lg:space-x-[20px] space-y-[15px] lg:space-y-0 inline-flex w-full items-center justify-center">
+      <form ref={form} onSubmit={changeSubmit} className="lg:space-x-[20px] md:space-x-[15px] space-y-[15px] lg:space-y-0 md:space-y-0  lg:inline-flex w-full items-center justify-center">
         <input
           type="email"
           name="email"
@@ -46,9 +46,9 @@ function Newsletter() {
           placeholder="Enter your email"
           required
           onChange={(e) => setEmail(e.target.value)}
-          className="border-2 border-black px-6 py-3 rounded-md w-[300px] lg:w-[300px]"
+          className="border-2 border-black px-6 py-3 rounded-md md:w-[200px] w-[300px] lg:w-[300px]"
         />
-        <button className="bg-black text-white px-6 py-3 w-[300px] lg:w-[130px] rounded-md hover:opacity-75 transistion-all duration-300">
+        <button className="bg-black text-white md:px-4 px-6 py-3 w-[300px] lg:w-[130px] md:w-[90px] rounded-md hover:opacity-75 transistion-all duration-300">
           Subcribe
         </button>
         <Toaster
