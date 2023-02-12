@@ -77,7 +77,7 @@ function Allblog() {
                     <FiArrowUpRight />
                   </button>
                 </Link>
-                <p className="text-sm leading-relaxed w-[300px] lg:w-full lg:text-justify mt-3">
+                <p className="text-sm leading-relaxed w-full text-justify mt-3">
                   {posts.description}
                 </p>
                 <div className="flex gap-6 flex-wrap mt-3">
