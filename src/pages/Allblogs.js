@@ -2,25 +2,23 @@ import { React, useState, useEffect } from "react";
 import client from "../client";
 import { Link } from "react-router-dom";
 import { FiArrowUpRight } from "react-icons/fi";
-import ComMain from "../components/ComMain";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
-import { format } from 'date-fns'
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { format } from "date-fns";
 
-
-function Blog() {
-  const [posts, setPosts] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
+function Allblog() {
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     client
       .fetch(
         `*[_type == "post"] {
         title,
-        description,
-        tags,
         slug,
         body,
+        description,
+        tags,
         publishedAt,
         mainImage {
           asset -> {
@@ -33,17 +31,18 @@ function Blog() {
       } | order(publishedAt desc)`
       )
       .then((data) => {
-        setPosts(data.slice(0, 3));
+        setPosts(data);
         console.log(data);
       })
       .catch(console.error);
-          setIsLoading(false);
-
-  }, [])
+    setIsLoading(false);
+  }, []);
   return (
     <>
-      <ComMain />
-      <section className="px-5 w-[100%] mx-auto mt-[50px] mb-[30px]">
+      <section className="px-5 2xl:mx-auto 2xl:max-w-7xl mt-[50px] mb-[30px]">
+        <h1 className="text-center text-3xl text-black font-bold mb-10">
+          All Blog Posts
+        </h1>
         {isLoading ? (
           <div className="spinner w-[50%] mx-auto mt-5"></div>
         ) : (
@@ -51,16 +50,16 @@ function Blog() {
             {posts.map((posts) => (
               <article
                 key={posts.slug.current}
-                className="hover:opacity-75 hover:transition-all duration-300  w-full mx-auto"
+                className="hover:opacity-75 hover:transition-all duration-300 w-full mx-auto"
               >
-                <div className="">
+                <div>
                   <Link to={`/blog/${posts.slug.current}`}>
                     <LazyLoadImage
                       src={posts.mainImage.asset.url}
                       lazy="loading"
                       effect="blur"
                       alt={posts.title}
-                      className="lg:w-[500px] lg:h-[300px] object-cover rounded-md"
+                      className="bg-gray-100 lg:w-[500px] lg:h-[300px] object-cover rounded-md"
                     />
                   </Link>
                 </div>
@@ -78,17 +77,19 @@ function Blog() {
                     <FiArrowUpRight />
                   </button>
                 </Link>
-                <p className="text-sm leading-relaxed w-[300px] lg:w-full lg:text-justify">
+                <p className="text-sm leading-relaxed w-[300px] lg:w-full lg:text-justify mt-3">
                   {posts.description}
                 </p>
                 <div className="flex gap-6 flex-wrap mt-3">
-                  {posts.tags.map((item, id) => (
-                    <div key={id}>
-                      <label className="rounded-lg bg-slate-300 text-black-800 text-sm p-2 font-[500]">
-                        {item}
-                      </label>
-                    </div>
-                  ))}
+                  <div className="flex gap-6 flex-wrap mt-3">
+                    {posts.tags.map((item, id) => (
+                      <div key={id}>
+                        <label className="rounded-lg bg-slate-300 text-black-800 text-sm p-2 font-[500]">
+                          {item}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </article>
             ))}
@@ -97,7 +98,7 @@ function Blog() {
 
         <div className="max-w-7xl justify-center flex items-center mt-7">
           <button className="py-2 px-8 bg-black text-white rounded shadow hover:bg-transparent hover:border-2 hover:border-black hover:text-black transition-all duration-300 tracking-wide">
-            <Link to="/allblogs">More blog posts</Link>
+            <Link to="/">Go Home</Link>
           </button>
         </div>
       </section>
@@ -105,4 +106,4 @@ function Blog() {
   );
 }
 
-export default Blog;
+export default Allblog;

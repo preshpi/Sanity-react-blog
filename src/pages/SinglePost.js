@@ -53,10 +53,10 @@ function SinglePost() {
           </div>
         )}
 
-        <div className="w-[300px] lg:w-full lg:text-justify leading-loose mt-[7%]">
+        <div className="w-[300px] md:w-full lg:w-full lg:text-justify leading-loose mt-[7%]">
           <BlockContent
             blocks={singlePost.body}
-            projectId="2hp9gld0"
+            projectId="5zdi3aqw"
             dataset="production"
           />
         </div>

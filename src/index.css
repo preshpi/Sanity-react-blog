@@ -8,6 +8,7 @@
 
 body {
     font-family: 'Chillax', sans-serif;
+    background-color: #F7F7F8;
 }
 
 
@@ -28,7 +29,7 @@ body {
 
 
 .clipy{
-   -webkit-text-stroke: 0.3vw white;
+   -webkit-text-stroke: 0.3vw F7F7F8;
 }
 
 .clipy::before{
@@ -39,10 +40,10 @@ body {
    width:0%;
    height:100%;
    color:black;
-   -webkit-text-stroke: 0vw white;
+   -webkit-text-stroke: 0vw F7F7F8;
    border-right: 2px solid black;
    overflow:hidden;
-   animation: animate 6s linear infinite;
+   animation: animate 10s linear infinite;
 }
 
 @keyframes animate {
@@ -52,4 +53,8 @@ body {
    70%,90% {
       width: 100%;
    }
+}
+
+img {
+   max-width: 100%;
 }
