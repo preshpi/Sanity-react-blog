@@ -46,7 +46,7 @@ function Newsletter() {
           placeholder="Enter your email"
           required
           onChange={(e) => setEmail(e.target.value)}
-          className="border-2 border-black px-6 py-3 rounded-md md:w-[200px] w-[300px] lg:w-[300px]"
+          className="border-2 border-black px-6 py-3 outline-none rounded-md md:w-[200px] w-[300px] lg:w-[300px]"
         />
         <button className="bg-black text-white md:px-4 px-6 py-3 w-[300px] lg:w-[130px] md:w-[90px] rounded-md hover:opacity-75 transistion-all duration-300">
           Subcribe
