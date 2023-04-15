@@ -10,7 +10,7 @@ import Allblogs from "./pages/Allblogs";
 function App() {
   return (
     <div className="">
-      <div className="max-w-screen-xl w-[90%] mx-auto">
+      <div className="max-w-screen-xl w-[90%] mx-auto h-[100vh]">
         <Routes>
           <Route path="/blog/:slug" element={<SinglePost />} />
           <Route path="/" element={<Blog />} />
