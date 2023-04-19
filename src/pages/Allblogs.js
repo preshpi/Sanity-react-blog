@@ -48,10 +48,7 @@ function Allblog() {
         ) : (
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 px-5 mb-20 ">
             {posts.map((posts) => (
-              <article
-                key={posts.slug.current}
-                className="hover:opacity-75 hover:transition-all duration-300 w-full mx-auto"
-              >
+              <article key={posts.slug.current} className="w-full mx-auto">
                 <div>
                   <Link to={`/blog/${posts.slug.current}`}>
                     <LazyLoadImage
@@ -59,7 +56,7 @@ function Allblog() {
                       lazy="loading"
                       effect="blur"
                       alt={posts.title}
-                      className="bg-gray-100 lg:w-[500px] lg:h-[300px] object-cover rounded-md"
+                      className="bg-gray-100 lg:w-[500px] lg:h-[300px] object-cover rounded-md hover:opacity-75 hover:transition-all duration-300"
                     />
                   </Link>
                 </div>
