@@ -3,14 +3,13 @@ import client from "../client";
 import { Link } from "react-router-dom";
 import { FiArrowUpRight } from "react-icons/fi";
 import ComMain from "../components/ComMain";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
-import { format } from 'date-fns'
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { format } from "date-fns";
 
 function Blog() {
-  const [posts, setPosts] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     client
@@ -34,12 +33,10 @@ function Blog() {
       )
       .then((data) => {
         setPosts(data.slice(0, 3));
-        console.log(data);
       })
       .catch(console.error);
-          setIsLoading(false);
-
-  }, [])
+    setIsLoading(false);
+  }, []);
   return (
     <>
       <ComMain />
@@ -84,7 +81,7 @@ function Blog() {
                 <div className="flex gap-6 flex-wrap mt-3">
                   {posts.tags.map((item, id) => (
                     <div key={id}>
-                      <label className="rounded-lg bg-slate-300 text-black-800 text-sm p-2 font-[500]">
+                      <label className="rounded-md bg-slate-300 text-black-800 text-sm  px-4 py-1 font-[500]">
                         {item}
                       </label>
                     </div>
@@ -96,8 +93,8 @@ function Blog() {
         )}
 
         <div className="max-w-7xl justify-center flex items-center mt-7">
-          <button className="py-2 px-8 bg-black text-white rounded shadow hover:bg-transparent hover:border-2 hover:border-black hover:text-black transition-all duration-300 tracking-wide">
-            <Link to="/allblogs">More blog posts</Link>
+          <button className="py-2 px-8 bg-black text-white rounded shadow hover:bg-transparent border-2 border-black hover:text-black transition-all duration-300 tracking-wide">
+            <Link to="/allblogs">view more posts</Link>
           </button>
         </div>
       </section>
